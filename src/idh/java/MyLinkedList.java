@@ -318,6 +318,14 @@ public class MyLinkedList<T> implements List<T> {
 				return 1;
 			return next.size() + 1;
 		}
+		
+		public T get(int index) {
+			if (index == 0)
+				return value;
+			if (next == null)
+				throw new IndexOutOfBoundsException();
+			return next.get(index-1);
+		}
 	}
 	
 	/**
@@ -339,6 +347,9 @@ public class MyLinkedList<T> implements List<T> {
 	 * @return
 	 */
 	private ListElement getElement(int index) {
+		
+		
+		// old variant
 		if (isEmpty()) 
 			return null;
 		if (index == -1)
